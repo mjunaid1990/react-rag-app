@@ -1,0 +1,11 @@
+{
+  "name": "@xcodesol/rag-chatbox-backend",
+  "private": true,
+  "type": "module",
+  "description": "Private Express and SQLite API used by the RAG chatbox admin workspace.",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1"
+  }
+}

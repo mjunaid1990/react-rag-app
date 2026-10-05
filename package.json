@@ -1,0 +1,65 @@
+{
+  "name": "@xcodesol/rag-chatbox",
+  "version": "0.1.0",
+  "description": "An embeddable, accessible React chat UI for RAG backends.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "workspaces": ["server"],
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:admin\" \"npm:dev:server\"",
+    "dev:admin": "vite --config demo/vite.config.ts",
+    "dev:server": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.types.json && vite build --config demo/vite.config.ts",
+    "build:lib": "tsc --noEmit && vite build && tsc -p tsconfig.types.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "preview": "vite preview --config demo/vite.config.ts",
+    "pack:check": "npm pack --dry-run"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "react-markdown": "^9.0.3",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "lucide-react": "^1.52.0",
+    "concurrently": "^10.0.5",
+    "jsdom": "^29.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "vitest": "^5.0.3"
+  }
+}
